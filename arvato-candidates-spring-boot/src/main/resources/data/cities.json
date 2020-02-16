@@ -1,0 +1,86 @@
+[
+	{
+		"name" : "Barcelona",
+		"lat" : 41.3828939,
+		"lon" : 2.1774322,
+		"radius" : 5
+	},
+	{
+		"name" : "Madrid",
+		"lat" : 40.4167047,
+		"lon" : -3.7035825,
+		"radius" : 5
+	},
+	{
+		"name" : "Lleida",
+		"lat" : 41.6147605,
+		"lon" : 0.6267842,
+		"radius" : 2
+	},
+	{
+		"name" : "Tarragona",
+		"lat" : 41.1172364,
+		"lon" : 1.2546057,
+		"radius" : 3
+	},
+	{
+		"name" : "Málaga",
+		"lat" : 36.7213028,
+		"lon" : -4.4216366,
+		"radius" : 3
+	},
+	{
+		"name" : "Bilbao",
+		"lat" : 43.2630051,
+		"lon" : -2.9349915,
+		"radius" : 4
+	},
+	{
+		"name" : "Salamanca",
+		"lat" : 40.9651572,
+		"lon" : -5.6640182,
+		"radius" : 3
+	},
+	{
+		"name" : "Girona",
+		"lat" : 41.9793006,
+		"lon" : 2.8199439,
+		"radius" : 3
+	},
+	{
+		"name" : "Sevilla",
+		"lat" : 37.3886303,
+		"lon" : -5.9953403,
+		"radius" : 4
+	},
+	{
+		"name" : "Cuenca",
+		"lat" : 40.0681156,
+		"lon" : -2.1348241,
+		"radius" : 2
+	},
+	{
+		"name" : "San Sebastian",
+		"lat" : 43.3224219,
+		"lon" : -1.9838889,
+		"radius" : 3
+	},
+	{
+		"name" : "Logroño",
+		"lat" : 42.4661196,
+		"lon" : -2.4396676,
+		"radius" : 2
+	},
+	{
+		"name" : "Cádiz",
+		"lat" : 36.5298292,
+		"lon" : -6.2925679,
+		"radius" : 3
+	},
+	{
+		"name" : "Teruel",
+		"lat" : 40.3436719,
+		"lon" : -1.1081939,
+		"radius" : 3
+	}		
+]

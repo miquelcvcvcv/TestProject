@@ -1,0 +1,90 @@
+[
+	{
+		"origin": 		"Barcelona",
+		"destination": 	"Madrid",
+		"distance" : {
+			"toll" : 564.55,
+			"free" : 600.34
+		}
+	},
+	{
+		"origin": 		"Barcelona",
+		"destination": 	"Lleida",
+		"distance" : {
+			"toll" : 140.7,
+			"free" : 160
+		}
+	},
+	{
+		"origin": 		"Lleida",
+		"destination": 	"Tarragona",
+		"distance" : {
+			"toll" : 101,
+			"free" : 139.4
+		}
+	},
+	{
+		"origin": 		"Madrid",
+		"destination": 	"Málaga",
+		"distance" : {
+			"toll" : 529.2,
+			"free" : 543.5
+		}
+	},
+	{
+		"origin": 		"Bilbao",
+		"destination": 	"Salamanca",
+		"distance" : {
+			"toll" : 397.87,
+			"free" : 419.978
+		}
+	},
+	{
+		"origin": 		"Girona",
+		"destination": 	"Sevilla",
+		"distance" : {
+			"toll" : 1087.34,
+			"free" : 1183.32
+		}
+	},
+	{
+		"origin": 		"Cuenca",
+		"destination": 	"Madrid",
+		"distance" : {
+			"toll" : 165.343,
+			"free" : 165.333
+		}
+	},
+	{
+		"origin": 		"Bilbao",
+		"destination": 	"San Sebastian",
+		"distance" : {
+			"toll" : 102.43,
+			"free" : 127.343
+		}
+	},
+	{
+		"origin": 		"Logroño",
+		"destination": 	"Cádiz",
+		"distance" : {
+			"toll" : 953.001,
+			"free" : 976.332
+		}
+	},
+	{
+		"origin": 		"Madrid",
+		"destination": 	"Teruel",
+		"distance" : {
+			"toll" : 302,
+			"free" : 313
+		}
+	},
+	{
+		"origin": 		"Teruel",
+		"destination": 	"Barcelona",
+		"distance" : {
+			"toll" : 431,
+			"free" : 431
+		}
+	}	
+]
