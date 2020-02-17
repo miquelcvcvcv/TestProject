@@ -4,6 +4,7 @@ package de.arvato.geo;
 
 
 import de.arvato.geo.controller.CityController;
+import de.arvato.geo.service.CityDistancesService;
 import de.arvato.geo.service.CityService;
 import de.arvato.geo.service.DistancesService;
 import de.arvato.geo.utils.GeoUtils;
@@ -62,8 +63,31 @@ public class ArvatoCandidatesSpringBootApplication {
 		
 		
 	}
-	
-	
+	@Bean
+	CommandLineRunner runnerCityDistances (CityDistancesService citiesDistancesService) {
+		return args -> {
+			ObjectMapper objectMapper =new ObjectMapper();
+			TypeReference <List<City>> typeReference = new TypeReference <List<City>>(){};
+			InputStream inputStream=TypeReference.class.getResourceAsStream("/data/cities.json");
+			Reader reader = new InputStreamReader(inputStream, "UTF-8");
+			BufferedReader in = new BufferedReader(new InputStreamReader(inputStream, StandardCharsets.UTF_8));
+			/*
+			try {
+				
+				//List<City> cities=objectMapper.readValue(inputStream, typeReference);
+				List<City> cities=objectMapper.readValue(in, typeReference);
+				
+				citiesDistancesService.saveAllCities(cities);
+				
+				System.out.println("Cities Saved");
+			} catch (IOException e)
+			{
+				System.out.println("Unable to save cities"+e.getMessage());
+			}
+			*/
+		};
+	}
+	/*
 	@Bean
 		CommandLineRunner runner1(CityService citiesService) {
 			return args -> {
@@ -75,38 +99,9 @@ public class ArvatoCandidatesSpringBootApplication {
 				Reader reader = new InputStreamReader(inputStream, "UTF-8");
 				BufferedReader in = new BufferedReader(new InputStreamReader(inputStream, StandardCharsets.UTF_8));
 				
-				//String filepath=System.getProperty("user.dir")+"\\"+"src\\main\\resources\\data\\cities.json";	
-				//System.out.println("fff"+ filepath);
 				
 				try {
-					//JsonEncoding.UTF16_BE; 
-					//JsonGenerator generator;
-					//JsonEncoding je=je.UTF32_BE;
-					//je.
-					//JsonParser jp;
-					//JsonFactory factory=new JsonFactory();
-					//jp=factory.createJsonParser(inputStream);
-					//jp=factory.createParser(inputStream);
-					//jp=generator.
-					
-					 //JsonGenerator jsonGeneratorWithUtf16 = new JsonFactory().createGenerator(new File("C:/outputJson.json"), JsonEncoding.UTF16_BE);
-					//.
-					 //jsonGeneratorWithUtf16.
-					 
-					 //new ObjectMapper().writeValue(jsonGeneratorWithUtf16, objectToBeSerialized);
-					 //but when I run file -i C:/outputJson.json it shows charset=binary.		
-							
-							
-							
-							
-					//jp=factory.createGenerator(new File ("../data/cities.json"), JsonEncoding.UTF32_BE);			
-					//jp.
-					//JsonGenerator jg;
-					//File f= new File(inputStream);
-					
-					//List<City> cities=objectMapper.readValue(new File (filepath), typeReference);
-					//List<City> cities=objectMapper.readValue(jp, typeReference);
-					
+			
 					//List<City> cities=objectMapper.readValue(inputStream, typeReference);
 					List<City> cities=objectMapper.readValue(in, typeReference);
 					
@@ -151,58 +146,7 @@ CommandLineRunner runner2(DistancesService distancesService) {
 	};
 
 }
-}
-
-/*
-@Bean
-CommandLineRunner runner3(GeoUtils geo) {
-	return args -> {
-		
-};
-}
-
-
-}
 */
-	//@Bean
-	/*CommandLineRunner runner(CitiesService citiesService) {
-		return args -> {
-			*/
-	
-	/*@Override
-    public void run(String[] args) throws IOException {
-		
-			ObjectMapper objectMapper =new ObjectMapper();
-			
-			//JsonNode rootNode = objectMapper.readTree(new File("customer.json"));
-			
-			// City city = objectMapper.readValue(new File("cities.json"), City.class);
-			
-			 City city = objectMapper.readValue(new File(getClass().getClassLoader().getResource("data/cities.json").getFile()), City.class);
-				
-			 System.out.println(city);
-			
-			//TypeReference<List<City>> typeReference = new TypeReference <List<City>>() {};
-			
-		}
-			// read json and write to db
-		//};
-	 */
-/*	@Bean
-	CommandLineRunner runner(CitiesService cityService) {
-		return args -> {
-			// read json and write to db
-			ObjectMapper mapper = new ObjectMapper();
-			TypeReference<List<User>> typeReference = new TypeReference<List<User>>(){};
-			InputStream inputStream = TypeReference.class.getResourceAsStream("/json/users.json");
-			try {
-				List<User> users = mapper.readValue(inputStream,typeReference);
-				userService.save(users);
-				System.out.println("Users Saved!");
-			} catch (IOException e){
-				System.out.println("Unable to save users: " + e.getMessage());
-			}
-		};
-	}*/
+}
 
-//}
+

@@ -1,10 +1,12 @@
 package de.arvato.geo.service;
 
 import java.util.Collections;
+
 import java.util.List;
 
 import org.jboss.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import de.arvato.geo.domain.City;
@@ -15,7 +17,8 @@ import de.arvato.geo.utils.GeoUtils.O;
 
 import de.arvato.geo.repository.CityRepository;
 
-@Service
+@Component
+//@Service
 public class DistancesService {
 
 

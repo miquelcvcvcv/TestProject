@@ -4,7 +4,10 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
+import org.hibernate.annotations.GenericGenerator;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -26,6 +29,7 @@ public class Distance implements Serializable {
 	 */
 	private static final long serialVersionUID = -6608515872347292358L;
 	//@Column (name="distance")
+	
 	private float toll;
 	private short free;
 

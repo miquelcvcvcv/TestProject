@@ -7,7 +7,7 @@ import org.springframework.data.repository.CrudRepository;
 
 
 
-public interface CityDistancesRepository extends CrudRepository <City, Long> {
+public interface CityDistancesRepository extends CrudRepository <CityDistances, Long> {
 
 	
 	
