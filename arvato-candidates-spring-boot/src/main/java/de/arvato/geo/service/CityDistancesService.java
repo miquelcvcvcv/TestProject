@@ -66,7 +66,7 @@ public class CityDistancesService {
 	
 	
  
-	public Iterable<City> saveAlls(List<City> cities) {
+	public Iterable<City> saveAllcities(List<City> cities) {
 		
 		return cityService.saveAll(cities);
 				

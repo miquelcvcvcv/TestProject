@@ -67,26 +67,51 @@ public class ArvatoCandidatesSpringBootApplication {
 	CommandLineRunner runnerCityDistances (CityDistancesService citiesDistancesService) {
 		return args -> {
 			
-			/*ObjectMapper objectMapper =new ObjectMapper();
+			ObjectMapper objectMapper =new ObjectMapper();
 			TypeReference <List<City>> typeReference = new TypeReference <List<City>>(){};
 			InputStream inputStream=TypeReference.class.getResourceAsStream("/data/cities.json");
 			Reader reader = new InputStreamReader(inputStream, "UTF-8");
 			BufferedReader in = new BufferedReader(new InputStreamReader(inputStream, StandardCharsets.UTF_8));
-			*/
-			/*
+			
 			try {
 				
 				//List<City> cities=objectMapper.readValue(inputStream, typeReference);
 				List<City> cities=objectMapper.readValue(in, typeReference);
 				
-				citiesDistancesService.saveAllCities(cities);
+				citiesDistancesService.saveAllcities(cities);
 				
 				System.out.println("Cities Saved");
 			} catch (IOException e)
 			{
 				System.out.println("Unable to save cities"+e.getMessage());
 			}
-			*/
+			
+			
+			ObjectMapper objectMapperd =new ObjectMapper();
+			TypeReference <List<Distances>> typeReferenced = new TypeReference <List<Distances>>(){};
+			InputStream inputStreamd=TypeReference.class.getResourceAsStream("/data/distances.json");
+			Reader readerd = new InputStreamReader(inputStreamd, "UTF-8");
+			BufferedReader ind = new BufferedReader(new InputStreamReader(inputStreamd, StandardCharsets.UTF_8));
+							
+			try {
+
+				List<Distances> distances=objectMapperd.readValue(ind, typeReferenced);
+				
+				citiesDistancesService.saveAllDistances(distances);     
+				
+				System.out.println("Distances Saved");
+			} catch (IOException e)
+			{
+				System.out.println("Unable to save distances"+e.getMessage());
+			}
+			
+	
+			
+			
+			
+			
+			
+			
 		};
 	}
 	/*
