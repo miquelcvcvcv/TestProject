@@ -218,7 +218,7 @@ public class CityDistancesService {
 	
 		double num=1234.567345;
 		num=Math.rint(num*1000)/1000;
-		System.out.println();
+		System.out.println(num);
 	    int i=0;
 		int numero_maximo_ciudades=(int)cityService.numerodeciudades();
 		List<City> cities=(List<City>)cityService.listaordenadaalfabeticamente();
