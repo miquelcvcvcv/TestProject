@@ -57,7 +57,7 @@ public class ArvatoCandidatesSpringBootApplication {
 		SpringApplication.run(ArvatoCandidatesSpringBootApplication.class, args);
 		
 		
-		//System.out.println(System.getProperty("user.dir"));
+		System.out.println("Ejecutando");
 		
 		
 		
