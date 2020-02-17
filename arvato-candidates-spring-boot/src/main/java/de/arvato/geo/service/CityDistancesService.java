@@ -3,23 +3,34 @@ package de.arvato.geo.service;
 import java.util.Collections;
 import java.util.List;
 
+import org.jboss.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import de.arvato.geo.domain.City;
+import de.arvato.geo.domain.CityDistances;
 import de.arvato.geo.domain.Distances;
 import de.arvato.geo.repository.CityDistancesRepository;
 import de.arvato.geo.repository.CityRepository;
 import de.arvato.geo.repository.DistancesRepository;
 import de.arvato.geo.utils.GeoUtils;
 import de.arvato.geo.utils.GeoUtils.O;
-
+@Service
 public class CityDistancesService {
+	
+	private static final Logger LOGGER= Logger.getLogger(Service.class);
 
 	@Autowired
 	GeoUtils geo;
 	
 	private CityDistancesRepository cityDistancesRepository;
-
+	
+	@Autowired
+	private CityService cityService;
+	@Autowired
+	private DistancesService distanceService;
+	
+	
 	
 	public CityDistancesService(CityDistancesRepository cityDistancesRepository) {
 		this.cityDistancesRepository=cityDistancesRepository;
@@ -29,22 +40,20 @@ public class CityDistancesService {
 
 	
 	public Iterable<City> list(){
-		return cityDistancesRepository.findAll();
+		return cityService.list();
+	
 	}
 	
 	public long numerodeciudades(){
 		
 			
-		return cityDistancesRepository.count();
+		return cityService.numerodeciudades();
 	}
 
 	
 	public Iterable<City> listaordenadaalfabeticamente(){
 		
-		
-		List<City> cities=(List<City>) cityDistancesRepository.findAll();
-		Collections.sort(cities);
-		return cities;
+		return cityService.listaordenadaalfabeticamente();
 		 
 	}
 
@@ -52,13 +61,14 @@ public class CityDistancesService {
 
 	 public City saveAll (City city)
 	 {
-		 return cityDistancesRepository.save(city);
+		 return cityService.saveAll(city);
 	 }
 	
 	
  
-	public Iterable<City> saveAllCities(List<City> cities) {
-		return cityDistancesRepository.saveAll(cities);
+	public Iterable<City> saveAlls(List<City> cities) {
+		
+		return cityService.saveAll(cities);
 				
 		
 	}
@@ -67,20 +77,20 @@ public class CityDistancesService {
 	
 	
 	public Iterable<Distances> listDistances(){
-		return cityDistancesRepository.findAll();
+		return distanceService.list();
 	}
 	
 	
 	
 	 public Distances saveAllDistances (Distances distances)
 	 {
-		 return cityDistancesRepository.save(distances);
+		 return distanceService.saveAll(distances);
 	 }
 	
 	
 	 
 	public Iterable<Distances> saveAllDistances(List<Distances> distances) {
-		return cityDistancesRepository.saveAllDistances(distances);
+		return distanceService.saveAll(distances);
 		 //cityRepository.saveAll(cities);
 		
 		

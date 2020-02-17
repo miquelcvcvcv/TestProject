@@ -1,5 +1,6 @@
 package de.arvato.geo.repository;
 import de.arvato.geo.domain.City;
+import de.arvato.geo.domain.CityDistances;
 
 import java.util.List;
 

@@ -66,11 +66,13 @@ public class ArvatoCandidatesSpringBootApplication {
 	@Bean
 	CommandLineRunner runnerCityDistances (CityDistancesService citiesDistancesService) {
 		return args -> {
-			ObjectMapper objectMapper =new ObjectMapper();
+			
+			/*ObjectMapper objectMapper =new ObjectMapper();
 			TypeReference <List<City>> typeReference = new TypeReference <List<City>>(){};
 			InputStream inputStream=TypeReference.class.getResourceAsStream("/data/cities.json");
 			Reader reader = new InputStreamReader(inputStream, "UTF-8");
 			BufferedReader in = new BufferedReader(new InputStreamReader(inputStream, StandardCharsets.UTF_8));
+			*/
 			/*
 			try {
 				
