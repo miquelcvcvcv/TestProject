@@ -24,7 +24,7 @@ public class DistancesController  {
 		this.distancesService=distancesservice;
 	}
 	
-@GetMapping("/list")
+@GetMapping("/listdistances")
 public Iterable<Distances>list(){
 return distancesService.list();
 }

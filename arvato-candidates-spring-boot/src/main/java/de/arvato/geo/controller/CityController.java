@@ -19,7 +19,7 @@ public class CityController  {
 		this.cityService=cityservice;
 	}
 		
-@GetMapping("/list")
+@GetMapping("/listcities")
 public Iterable<City>list(){
 return cityService.list();
 }

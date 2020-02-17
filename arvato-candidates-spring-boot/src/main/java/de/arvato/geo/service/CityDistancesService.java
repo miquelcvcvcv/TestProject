@@ -7,6 +7,7 @@ import org.jboss.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import de.arvato.geo.domain.Boolint;
 import de.arvato.geo.domain.City;
 import de.arvato.geo.domain.CityDistances;
 import de.arvato.geo.domain.Distances;
@@ -120,29 +121,68 @@ public class CityDistancesService {
 		endlonorientation=stringtoEnum(endLonOrientacion);
 		
 		
-		 double startlatorigin=geo.getDecimalValue(startLatGrados, startLatMinutos, startLatSegundos, startlatorientation);
-		 double startlonorigin=geo.getDecimalValue(startLonGrados, startLonMinutos, startLonSegundos, startlonorientation);
+		 double startlatorigin=GeoUtils.getDecimalValue(startLatGrados, startLatMinutos, startLatSegundos, startlatorientation);
+		 double startlonorigin=GeoUtils.getDecimalValue(startLonGrados, startLonMinutos, startLonSegundos, startlonorientation);
 		
-		 double endlatorigin=geo.getDecimalValue(endLatGrados, endLatMinutos, endLatSegundos, endlatorientation);
-		 double endlonorigin=geo.getDecimalValue(endLonGrados, endLonMinutos, endLonSegundos, endlonorientation);
+		 double endlatorigin=GeoUtils.getDecimalValue(endLatGrados, endLatMinutos, endLatSegundos, endlatorientation);
+		 double endlonorigin=GeoUtils.getDecimalValue(endLonGrados, endLonMinutos, endLonSegundos, endlonorientation);
 			
+				
+		 double km2=GeoUtils.getDistance(startlatorigin, startlonorigin, endlatorigin, endlonorigin);
 		 
-		 double km=geo.getDistance(41.3828939, 2.1774322,  41.1172364, 1.2546057);
-		
-		//double km=0;
-		 s=s+km +"<br></br>";
-		
-		 double km2=geo.getDistance(startlatorigin, startlonorigin, endlatorigin, endlonorigin);
-		 s=s+"Distancia calculada despues de convertir de gsm a lat y lon"+"<br></br>";
+		 s=s+"Distancia calculada entre ciudades despues de convertir de gsm a lat y lon por get Distance"+"<br></br>";
 		 s=s+km2;
+		 
+		 
+		 s=s+"Busqueda de la ciudad de origen usando lat y lon. LAT="+startlatorigin+" LON="+startlonorigin+"<br></br>";
+		 Boolint biorigen;
+		 biorigen=this.buscar_ciudad(startlatorigin, startlonorigin);
+		List<City> cities=(List<City>)cityService.listaordenadaalfabeticamente();
+		 if (biorigen.isB())
+		 {
+			 
+			 s=s+"Ciudad origen encontrada: "+"<br></br>";
+			 s=s+cities.get(biorigen.getI()).getName()+"<br></br>";
+				
+		 }else
+		 {
+			 s=s+"Ciudad origen NO encontrada: "+"<br></br>";
+			 s=s+cities.get(biorigen.getI())+"<br></br>";
+			
+		 }
+		 
+		 Boolint bidestino;
+		 bidestino=this.buscar_ciudad(endlatorigin, endlatorigin);
+		 if (bidestino.isB())
+		 {
+			 
+			 s=s+"Ciudad destino encontrada: "+"<br></br>";
+			 s=s+cities.get(bidestino.getI()).getName()+"<br></br>";
+				
+		 }else
+		 {
+			 s=s+"Ciudad destino NO encontrada: "+"<br></br>";
+			 			
+		 }
+		 
+		 
+		 
+		 
+		 
+		 
+		 
 		return s;
 		/*
 		//encontrar ciudad 1 usando startlatorigin, startlonorigin
+	  
 		List<City> cities=(List<City>) cityRepository.findAll();
 		Collections.sort(cities);
 		CityService citiesService;
 		citiesService.listaordenadaalfabeticamente();
 		*/
+		
+		
+		
 		
 		
 	}
@@ -172,7 +212,31 @@ public class CityDistancesService {
 	return orientation;
 	}
 	
+	private Boolint buscar_ciudad(double lat, double lon)
+	{
+		Boolint bi=new Boolint();
 	
+		double num=1234.567345;
+		num=Math.rint(num*1000)/1000;
+		System.out.println();
+	    int i=0;
+		int numero_maximo_ciudades=(int)cityService.numerodeciudades();
+		List<City> cities=(List<City>)cityService.listaordenadaalfabeticamente();
+		boolean bciudad_encontrada=false;
+		while (( i<numero_maximo_ciudades)&&(bciudad_encontrada==false))
+			{
+			if ((cities.get(i).getLat()==lat)&&(cities.get(i).getLon()==lon))
+			{
+				bi.setI(i);
+				bi.setB(true);
+				bciudad_encontrada=true;	
+				
+			}
+			i++;
+			}	
+		
+		return bi;
+	}
 	
 	
 

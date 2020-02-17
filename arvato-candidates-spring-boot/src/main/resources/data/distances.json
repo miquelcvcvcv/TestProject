@@ -25,7 +25,7 @@
 	},
 	{
 		"origin": 		"Madrid",
-		"destination": 	"MÃ¡laga",
+		"destination": 	"Málaga",
 		"distance" : {
 			"toll" : 529.2,
 			"free" : 543.5
@@ -64,8 +64,8 @@
 		}
 	},
 	{
-		"origin": 		"LogroÃ±o",
-		"destination": 	"CÃ¡diz",
+		"origin": 		"Logroño",
+		"destination": 	"Cádiz",
 		"distance" : {
 			"toll" : 953.001,
 			"free" : 976.332

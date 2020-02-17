@@ -27,7 +27,7 @@ public class CityDistancesController {
 public Iterable<City>list(){
 return cityDistancesServices.list();
 }
-@GetMapping("/listaordenadaalfabeticamente")
+@GetMapping("/listaciudadesordenadaalfabeticamente")
 public  Iterable<City> listaordenadaalfabeticamente(){
 	return cityDistancesServices.listaordenadaalfabeticamente();
 }
@@ -39,7 +39,7 @@ public long numerodeciudades(){
 //////////////////////////////////////Distancias
 
 
-@GetMapping("/list")
+@GetMapping("/listdistances")
 public Iterable<Distances>listDistance(){
 return cityDistancesServices.listDistances();
 }
@@ -67,6 +67,12 @@ public  String distanciaentreciudades(@RequestParam(name="startLatGrados")String
 	bpeaje=peaje ;
 	}
 	cityDistancesServices.distanciaEntreciudades(istartLatGrados,istartLatMinutos,istartLatSegundos,startLatOrientacion,istartLonGrados,istartLonMinutos,istartLonSegundos,startLonOrientacion, iendLatGrados,iendLatMinutos,iendLatSegundos,endLatOrientacion,iendLonGrados,iendLonMinutos,iendLonSegundos,endLonOrientacion,true);
+	
+	
+	
+	
+	
+	
 	
 	                          //distanciaentreciudades(int startLatGrados,int startLatMinutos,double startLatSstartLatOrientacion,int startLonGrados,int startLonMinutos,double star startLonOrientacion, int endLatGrados,int endLatMinutos, double endLatSegundos, String endLatOrientacion, int endLonGrados,int endLonMinutos, double endLonSegundos, String endLonOrientacion, Boolean peaje)
 	return cityDistancesServices.distanciaEntreciudades(istartLatGrados,istartLatMinutos,istartLatSegundos,startLatOrientacion,istartLonGrados,istartLonMinutos,istartLonSegundos,startLonOrientacion, iendLatGrados,iendLatMinutos,iendLatSegundos,endLatOrientacion,iendLonGrados,iendLonMinutos,iendLonSegundos,endLonOrientacion,true);
