@@ -35,8 +35,8 @@ public class CityDistancesService {
 	public long numerodeciudades(){
 		
 		
-		
-		return cityDistanceRepository.count();
+		return 1;
+		//return cityDistanceRepository.count();
 	}
 
 	
