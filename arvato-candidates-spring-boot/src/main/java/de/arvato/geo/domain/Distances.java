@@ -16,7 +16,7 @@ import lombok.Data;
 @AllArgsConstructor
 @Entity
 
-public class Distances implements Serializable {
+public class Distances implements  Comparable<Distances>, Serializable {
 
 	
 	/**
@@ -68,6 +68,14 @@ public class Distances implements Serializable {
 	{
 		this.distance=dis;
 	}
+	
+	
+	@Override
+    public int compareTo(Distances dis1) {
+        return this.origin.compareToIgnoreCase(dis1.origin);
+    }
+
+
 	
 	/*
 	@Override

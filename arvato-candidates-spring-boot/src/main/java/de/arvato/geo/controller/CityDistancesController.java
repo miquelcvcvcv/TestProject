@@ -44,6 +44,11 @@ public Iterable<Distances>listDistance(){
 return cityDistancesServices.listDistances();
 }
 
+@GetMapping("/listaordenadaalfabeticamente")
+public  Iterable<Distances> listadistancasordenadaalfabeticamente(){
+	return cityDistancesServices.listadistanciasordenadaalfabeticamente();
+}	
+
 @GetMapping("/distanciaentreciudades")
 public  String distanciaentreciudades(@RequestParam(name="startLatGrados")String startLatGrados, @RequestParam(name="startLatMinutos") String startLatMinutos, @RequestParam(name="startLatSegundos") String startLatSegundos, @RequestParam(name="startLatOrientacion") String startLatOrientacion,@RequestParam(name="startLonGrados") String startLonGrados, @RequestParam(name="startLonMinutos") String startLonMinutos, @RequestParam(name="startLonSegundos") String startLonSegundos, @RequestParam(name="startLonOrientacion") String startLonOrientacion ,@RequestParam(name="endLatGrados") String endLatGrados, @RequestParam(name="endLatMinutos") String endLatMinutos, @RequestParam(name="endLatSegundos") String endLatSegundos, @RequestParam(name="endLatOrientacion") String endLatOrientacion,@RequestParam(name="endLonGrados") String endLonGrados, @RequestParam(name="endLonMinutos") String endLonMinutos, @RequestParam(name="endLonSegundos") String endLonSegundos, @RequestParam(name="endLonOrientacion") String endLonOrientacion, @RequestParam(name="peaje", required=false ) Boolean peaje){
 	
@@ -59,14 +64,11 @@ public  String distanciaentreciudades(@RequestParam(name="startLatGrados")String
 	int iendLonGrados=Integer.valueOf(endLonGrados);
 	int iendLonMinutos=Integer.valueOf(endLonMinutos);
 	double iendLonSegundos=Double.valueOf(endLonSegundos);
-	Boolean bpeaje=true;
+	boolean bpeaje=true;
 
-	
-	if ((peaje != null)==true)
-	{
 	bpeaje=peaje ;
-	}
-	cityDistancesServices.distanciaEntreciudades(istartLatGrados,istartLatMinutos,istartLatSegundos,startLatOrientacion,istartLonGrados,istartLonMinutos,istartLonSegundos,startLonOrientacion, iendLatGrados,iendLatMinutos,iendLatSegundos,endLatOrientacion,iendLonGrados,iendLonMinutos,iendLonSegundos,endLonOrientacion,true);
+	
+	cityDistancesServices.distanciaEntreciudades(istartLatGrados,istartLatMinutos,istartLatSegundos,startLatOrientacion,istartLonGrados,istartLonMinutos,istartLonSegundos,startLonOrientacion, iendLatGrados,iendLatMinutos,iendLatSegundos,endLatOrientacion,iendLonGrados,iendLonMinutos,iendLonSegundos,endLonOrientacion,bpeaje);
 	
 	
 	

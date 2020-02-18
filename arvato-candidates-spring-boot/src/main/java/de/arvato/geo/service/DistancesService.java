@@ -44,7 +44,14 @@ public class DistancesService {
 		return distancesRepository.findAll();
 	}
 	
-	
+	public Iterable<Distances> listaordenadaalfabeticamente(){
+		
+		
+		List<Distances> distances=(List<Distances>) distancesRepository.findAll();
+		Collections.sort(distances);
+		return distances;
+		 
+	}
 	
 	 public Distances saveAll (Distances distances)
 	 {

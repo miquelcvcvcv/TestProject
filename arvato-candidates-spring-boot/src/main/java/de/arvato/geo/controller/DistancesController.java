@@ -50,7 +50,7 @@ public  String distanciaentreciudades(@RequestParam(name="startLatGrados")String
 	
 	//if (peaje.isPresent()==false) 
 		//	{
-	if ((peaje != null)==true)
+	if ((peaje==true) || (peaje==false))
 	{
 	bpeaje=peaje ;
 	}
@@ -69,7 +69,7 @@ public  String distanciaentreciudades(@RequestParam(name="startLatGrados")String
                             //distanciaentreciudades(int startLatGrados,int startLatMinutos,double startLatSegundos,String startLatOrientacion,int startLonGrados,int startLonMinutos,double startLonSegundos,String startLonOrientacion, int endLatGrados,int endLatMinutos, double endLatSegundos, String endLatOrientacion, int endLonGrados,int endLonMinutos, double endLonSegundos, String endLonOrientacion){
 	
 	
-	return distancesService.distanciaentreciudades(istartLatGrados,istartLatMinutos,istartLatSegundos,startLatOrientacion,istartLonGrados,istartLonMinutos,istartLonSegundos,startLonOrientacion, iendLatGrados,iendLatMinutos,iendLatSegundos,endLatOrientacion,iendLonGrados,iendLonMinutos,iendLonSegundos,endLonOrientacion,bpeaje);
+	return distancesService.distanciaentreciudades(istartLatGrados,istartLatMinutos,istartLatSegundos,startLatOrientacion,istartLonGrados,istartLonMinutos,istartLonSegundos,startLonOrientacion, iendLatGrados,iendLatMinutos,iendLatSegundos,endLatOrientacion,iendLonGrados,iendLonMinutos,iendLonSegundos,endLonOrientacion,false);
 	
 	
 }
