@@ -50,7 +50,7 @@ public  Iterable<Distances> listadistancasordenadaalfabeticamente(){
 }	
 
 @GetMapping("/distanciaentreciudades")
-public  String distanciaentreciudades(@RequestParam(name="startLatGrados")String startLatGrados, @RequestParam(name="startLatMinutos") String startLatMinutos, @RequestParam(name="startLatSegundos") String startLatSegundos, @RequestParam(name="startLatOrientacion") String startLatOrientacion,@RequestParam(name="startLonGrados") String startLonGrados, @RequestParam(name="startLonMinutos") String startLonMinutos, @RequestParam(name="startLonSegundos") String startLonSegundos, @RequestParam(name="startLonOrientacion") String startLonOrientacion ,@RequestParam(name="endLatGrados") String endLatGrados, @RequestParam(name="endLatMinutos") String endLatMinutos, @RequestParam(name="endLatSegundos") String endLatSegundos, @RequestParam(name="endLatOrientacion") String endLatOrientacion,@RequestParam(name="endLonGrados") String endLonGrados, @RequestParam(name="endLonMinutos") String endLonMinutos, @RequestParam(name="endLonSegundos") String endLonSegundos, @RequestParam(name="endLonOrientacion") String endLonOrientacion, @RequestParam(name="peaje", required=false ) Boolean peaje){
+public  String distanciaentreciudades(@RequestParam(name="startLatGrados")String startLatGrados, @RequestParam(name="startLatMinutos") String startLatMinutos, @RequestParam(name="startLatSegundos") String startLatSegundos, @RequestParam(name="startLatOrientacion") String startLatOrientacion,@RequestParam(name="startLonGrados") String startLonGrados, @RequestParam(name="startLonMinutos") String startLonMinutos, @RequestParam(name="startLonSegundos") String startLonSegundos, @RequestParam(name="startLonOrientacion") String startLonOrientacion ,@RequestParam(name="endLatGrados") String endLatGrados, @RequestParam(name="endLatMinutos") String endLatMinutos, @RequestParam(name="endLatSegundos") String endLatSegundos, @RequestParam(name="endLatOrientacion") String endLatOrientacion,@RequestParam(name="endLonGrados") String endLonGrados, @RequestParam(name="endLonMinutos") String endLonMinutos, @RequestParam(name="endLonSegundos") String endLonSegundos, @RequestParam(name="endLonOrientacion") String endLonOrientacion, @RequestParam(required=false ) Boolean peaje){
 	
 	int istartLatGrados=Integer.valueOf(startLatGrados);
 	int istartLatMinutos=Integer.valueOf(startLatMinutos) ; 
@@ -66,18 +66,23 @@ public  String distanciaentreciudades(@RequestParam(name="startLatGrados")String
 	double iendLonSegundos=Double.valueOf(endLonSegundos);
 	boolean bpeaje=true;
 
+	if (peaje==null)
+	
+	{
+		peaje=true;
+	}
 	bpeaje=peaje ;
 	
-	cityDistancesServices.distanciaEntreciudades(istartLatGrados,istartLatMinutos,istartLatSegundos,startLatOrientacion,istartLonGrados,istartLonMinutos,istartLonSegundos,startLonOrientacion, iendLatGrados,iendLatMinutos,iendLatSegundos,endLatOrientacion,iendLonGrados,iendLonMinutos,iendLonSegundos,endLonOrientacion,bpeaje);
+	//cityDistancesServices.distanciaEntreciudades(istartLatGrados,istartLatMinutos,istartLatSegundos,startLatOrientacion,istartLonGrados,istartLonMinutos,istartLonSegundos,startLonOrientacion, iendLatGrados,iendLatMinutos,iendLatSegundos,endLatOrientacion,iendLonGrados,iendLonMinutos,iendLonSegundos,endLonOrientacion,bpeaje);
 	
-	
+
 	
 	
 	
 	
 	
 	                          //distanciaentreciudades(int startLatGrados,int startLatMinutos,double startLatSstartLatOrientacion,int startLonGrados,int startLonMinutos,double star startLonOrientacion, int endLatGrados,int endLatMinutos, double endLatSegundos, String endLatOrientacion, int endLonGrados,int endLonMinutos, double endLonSegundos, String endLonOrientacion, Boolean peaje)
-	return cityDistancesServices.distanciaEntreciudades(istartLatGrados,istartLatMinutos,istartLatSegundos,startLatOrientacion,istartLonGrados,istartLonMinutos,istartLonSegundos,startLonOrientacion, iendLatGrados,iendLatMinutos,iendLatSegundos,endLatOrientacion,iendLonGrados,iendLonMinutos,iendLonSegundos,endLonOrientacion,true);
+	return cityDistancesServices.distanciaEntreciudades(istartLatGrados,istartLatMinutos,istartLatSegundos,startLatOrientacion,istartLonGrados,istartLonMinutos,istartLonSegundos,startLonOrientacion, iendLatGrados,iendLatMinutos,iendLatSegundos,endLatOrientacion,iendLonGrados,iendLonMinutos,iendLonSegundos,endLonOrientacion,bpeaje);
 	
 	
 }

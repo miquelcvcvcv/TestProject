@@ -31,7 +31,7 @@ return distancesService.list();
 
 @GetMapping("/distanciaentreciudades")
 //public  String distanciaentreciudades(@RequestParam(name="startLatGrados") int startLatGrados, @RequestParam(name="startLatMinutos") int startLatMinutos, @RequestParam(name="startLatSegundos") double startLatSegundos, @RequestParam(name="startLatOrientacion") String startLatOrientacion,@RequestParam(name="startLonGrados") int startLonGrados, @RequestParam(name="startLonMinutos") int startLonMinutos, @RequestParam(name="startLonSegundos") double startLonSegundos, @RequestParam(name="startLonOrientacion") String startLonOrientacion ,@RequestParam(name="endLatGrados") int endLatGrados, @RequestParam(name="endLatMinutos") int endLatMinutos, @RequestParam(name="endLatSegundos") double endLatSegundos, @RequestParam(name="endLatOrientacion") String endLatOrientacion,@RequestParam(name="endLonGrados") int endLonGrados, @RequestParam(name="endLonMinutos") int endLonMinutos, @RequestParam(name="endLonSegundos") double endLonSegundos, @RequestParam(name="endLonOrientacion") String endLonOrientacion){
-public  String distanciaentreciudades(@RequestParam(name="startLatGrados")String startLatGrados, @RequestParam(name="startLatMinutos") String startLatMinutos, @RequestParam(name="startLatSegundos") String startLatSegundos, @RequestParam(name="startLatOrientacion") String startLatOrientacion,@RequestParam(name="startLonGrados") String startLonGrados, @RequestParam(name="startLonMinutos") String startLonMinutos, @RequestParam(name="startLonSegundos") String startLonSegundos, @RequestParam(name="startLonOrientacion") String startLonOrientacion ,@RequestParam(name="endLatGrados") String endLatGrados, @RequestParam(name="endLatMinutos") String endLatMinutos, @RequestParam(name="endLatSegundos") String endLatSegundos, @RequestParam(name="endLatOrientacion") String endLatOrientacion,@RequestParam(name="endLonGrados") String endLonGrados, @RequestParam(name="endLonMinutos") String endLonMinutos, @RequestParam(name="endLonSegundos") String endLonSegundos, @RequestParam(name="endLonOrientacion") String endLonOrientacion, @RequestParam(name="peaje", required=false ) Boolean peaje){
+public  String distanciaentreciudades(@RequestParam(name="startLatGrados")String startLatGrados, @RequestParam(name="startLatMinutos") String startLatMinutos, @RequestParam(name="startLatSegundos") String startLatSegundos, @RequestParam(name="startLatOrientacion") String startLatOrientacion,@RequestParam(name="startLonGrados") String startLonGrados, @RequestParam(name="startLonMinutos") String startLonMinutos, @RequestParam(name="startLonSegundos") String startLonSegundos, @RequestParam(name="startLonOrientacion") String startLonOrientacion ,@RequestParam(name="endLatGrados") String endLatGrados, @RequestParam(name="endLatMinutos") String endLatMinutos, @RequestParam(name="endLatSegundos") String endLatSegundos, @RequestParam(name="endLatOrientacion") String endLatOrientacion,@RequestParam(name="endLonGrados") String endLonGrados, @RequestParam(name="endLonMinutos") String endLonMinutos, @RequestParam(name="endLonSegundos") String endLonSegundos, @RequestParam(name="endLonOrientacion") String endLonOrientacion, @RequestParam(required=false ) boolean peaje){
 	
 	int istartLatGrados=Integer.valueOf(startLatGrados);
 	int istartLatMinutos=Integer.valueOf(startLatMinutos) ; 
@@ -50,26 +50,23 @@ public  String distanciaentreciudades(@RequestParam(name="startLatGrados")String
 	
 	//if (peaje.isPresent()==false) 
 		//	{
+	/*
 	if ((peaje==true) || (peaje==false))
 	{
+		
+	System.out.println("hay algo en parametro peaje");	
 	bpeaje=peaje ;
 	}
-	
+	*/
 	//	bpeaje=Boolean.valueOf(peajes);
 			//}
 
-	/*
-	startLat=41.3828939;
-	startLong=2.1774322;
-	endLat=40.4167047;
-	endLong=-3.7035825;
-	*/
-	
+
 	
                             //distanciaentreciudades(int startLatGrados,int startLatMinutos,double startLatSegundos,String startLatOrientacion,int startLonGrados,int startLonMinutos,double startLonSegundos,String startLonOrientacion, int endLatGrados,int endLatMinutos, double endLatSegundos, String endLatOrientacion, int endLonGrados,int endLonMinutos, double endLonSegundos, String endLonOrientacion){
 	
-	
-	return distancesService.distanciaentreciudades(istartLatGrados,istartLatMinutos,istartLatSegundos,startLatOrientacion,istartLonGrados,istartLonMinutos,istartLonSegundos,startLonOrientacion, iendLatGrados,iendLatMinutos,iendLatSegundos,endLatOrientacion,iendLonGrados,iendLonMinutos,iendLonSegundos,endLonOrientacion,false);
+	return "hola";
+	//return distancesService.distanciaentreciudades(istartLatGrados,istartLatMinutos,istartLatSegundos,startLatOrientacion,istartLonGrados,istartLonMinutos,istartLonSegundos,startLonOrientacion, iendLatGrados,iendLatMinutos,iendLatSegundos,endLatOrientacion,iendLonGrados,iendLonMinutos,iendLonSegundos,endLonOrientacion,false);
 	
 	
 }

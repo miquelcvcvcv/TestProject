@@ -176,12 +176,13 @@ public class CityDistancesService {
 		 if (biorigen.isB()&&bidestino.isB())
 		 {
 			 Boolint bibs=new Boolint();
+			 List<Distances> distances=(List<Distances>)distanceService.listaordenadaalfabeticamente();
+				
 		  //busqueda de una ruta simple de las dos ciudades en la lista de distancias
-			 bibs=this.busquedasimplederutas(cities.get(biorigen.getI()).getName(), cities.get(bidestino.getI()).getName()) ;
+			 bibs=this.busquedasimplederutas(cities.get(biorigen.getI()).getName(), cities.get(bidestino.getI()).getName(), distances) ;
 			 //Ruta simple encontrada
 			 if (bibs.isB())
 			 {
-				 List<Distances> distances=(List<Distances>)distanceService.listaordenadaalfabeticamente();
 				 s=s+"Ruta simple encontrada: "+"<br></br>";
 				 if (peaje)
 				 {
@@ -194,6 +195,21 @@ public class CityDistancesService {
 			 }else
 			 {
 				 s=s+"Ruta simple NO encontrada: "+"<br></br>";
+				 String ruta;
+				 s=s+"Buscando ruta compleja: "+"<br></br>";
+				 float distanciatotal=0;
+				 ruta="Ruta: "+cities.get(biorigen.getI()).getName();
+				 boolean busquedacomplejaencontrada=false;
+				 ruta=ruta+cities.get(biorigen.getI()).getName();
+				 busquedacomplejaencontrada=this.busquedacomplejarutas(cities.get(biorigen.getI()).getName(), cities.get(bidestino.getI()).getName(), distances, peaje, distanciatotal, ruta);
+				 ruta=ruta+"<br></br>"+"Distancia total ruta :" +distanciatotal+"<br></br>";
+				 if (busquedacomplejaencontrada)
+				 {
+					s=s+ruta; 
+				 }
+				 
+				 
+				 
 				 
 			 }
 			 
@@ -279,14 +295,15 @@ public class CityDistancesService {
 		
 		return bi;
 	}
-	private Boolint busquedasimplederutas(String ciudadorigen, String ciudaddestino)
+	private Boolint busquedasimplederutas(String ciudadorigen, String ciudaddestino, List<Distances> distances)
 	{
+		//no hace falta trabajar con la lista distancias ordenada, sin embargo la ordene porque en un futuro se puede ganar eficiencia en el algoritmo trabajando con una lista ordenada pues no haria falta recorrer toda la lista si esta esta ordenada.
 		Boolint bi=new Boolint();
 		//List<Distances> distances=(List<Distances>)distanceService.list();
-		List<Distances> distances=(List<Distances>)distanceService.listaordenadaalfabeticamente();
+		//List<Distances> distances=(List<Distances>)distanceService.listaordenadaalfabeticamente();
 		
 		int i=0;
-		while (i<distances.size() )
+		while ((i<distances.size() )&&(bi.isB()==false))
 		{
 			if (ciudadorigen.equals(distances.get(i).getOrigin()))
 			{
@@ -303,5 +320,39 @@ public class CityDistancesService {
 		return bi;
 	}
 	
+	private boolean busquedacomplejarutas(String ciudadorigen, String ciudaddestino,List<Distances> distances,boolean peaje, float distancia_total, String ruta)
+	{
+		//no hace falta trabajar con la lista distancias ordenada, sin embargo la ordene porque en un futuro se puede ganar eficiencia en el algoritmo trabajando con una lista ordenada pues no haria falta recorrer toda la lista si esta esta ordenada.
+		boolean b=false;
+		if (ciudadorigen!=ciudaddestino)
+		{
+		int i=0;
+		while (i<distances.size())
+		{
+			if (ciudadorigen.equals(distances.get(i).getOrigin()))
+			{	
+				if (peaje)
+				{
+				 distancia_total=distancia_total+distances.get(i).getDistance().getToll();
+				}
+				else
+				{
+				distancia_total=distancia_total+distances.get(i).getDistance().getfree();
+				}
+				ruta=ruta+distances.get(i).getdestination();
+				busquedacomplejarutas( distances.get(i).getdestination(), ciudaddestino, distances,peaje, distancia_total,ruta);
+				
+			}
+			
+			i++;
+		}	
+		}
+		else
+		{
+			b=true;
+		}
+		
+		return b;
+	}
 
 }
