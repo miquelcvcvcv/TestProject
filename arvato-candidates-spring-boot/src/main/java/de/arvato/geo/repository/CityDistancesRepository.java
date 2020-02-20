@@ -13,4 +13,6 @@ public interface CityDistancesRepository extends CrudRepository <CityDistances, 
 
 	
 	
+	
+	
 }

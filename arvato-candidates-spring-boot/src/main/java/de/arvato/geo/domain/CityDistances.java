@@ -41,7 +41,7 @@ public class CityDistances {
 		this.distances = distances;
 	}
 	
-
+	
 	public CityDistances() {}
 	
 }
