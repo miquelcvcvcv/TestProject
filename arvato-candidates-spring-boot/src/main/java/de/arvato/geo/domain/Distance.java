@@ -31,7 +31,7 @@ public class Distance implements Serializable {
 	//@Column (name="distance")
 	
 	private float toll;
-	private short free;
+	private float free;
 
 	
 	public float getToll ()
@@ -42,7 +42,7 @@ public class Distance implements Serializable {
 	{
 		this.toll=toll;
 	}
-	public short getfree ()
+	public float getfree ()
 	{
 		return this.free;
 	}

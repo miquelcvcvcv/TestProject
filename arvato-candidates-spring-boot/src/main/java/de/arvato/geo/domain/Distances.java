@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 import org.hibernate.annotations.GenericGenerator;
+import org.springframework.stereotype.Component;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -15,7 +16,7 @@ import lombok.Data;
 @Data
 @AllArgsConstructor
 @Entity
-
+@Component
 public class Distances implements  Comparable<Distances>, Serializable {
 
 	

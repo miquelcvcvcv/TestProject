@@ -15,6 +15,7 @@ import de.arvato.geo.service.CityDistancesService;
 
 public class CityDistancesController {
 
+	
 	private CityDistancesService cityDistancesServices;
 	//private CityService cityService;
 	
@@ -73,20 +74,42 @@ public  String distanciaentreciudades(@RequestParam(name="startLatGrados")String
 	}
 	bpeaje=peaje ;
 	
-	//cityDistancesServices.distanciaEntreciudades(istartLatGrados,istartLatMinutos,istartLatSegundos,startLatOrientacion,istartLonGrados,istartLonMinutos,istartLonSegundos,startLonOrientacion, iendLatGrados,iendLatMinutos,iendLatSegundos,endLatOrientacion,iendLonGrados,iendLonMinutos,iendLonSegundos,endLonOrientacion,bpeaje);
-	
-
-	
-	
-	
-	
-	
-	                          //distanciaentreciudades(int startLatGrados,int startLatMinutos,double startLatSstartLatOrientacion,int startLonGrados,int startLonMinutos,double star startLonOrientacion, int endLatGrados,int endLatMinutos, double endLatSegundos, String endLatOrientacion, int endLonGrados,int endLonMinutos, double endLonSegundos, String endLonOrientacion, Boolean peaje)
 	return cityDistancesServices.distanciaEntreciudades(istartLatGrados,istartLatMinutos,istartLatSegundos,startLatOrientacion,istartLonGrados,istartLonMinutos,istartLonSegundos,startLonOrientacion, iendLatGrados,iendLatMinutos,iendLatSegundos,endLatOrientacion,iendLonGrados,iendLonMinutos,iendLonSegundos,endLonOrientacion,bpeaje);
 	
 	
 }
 
+@GetMapping("/listarutasconparametros")
+public  String listarutasconparametros(@RequestParam(required=false)String origen, @RequestParam(required=false ) String destino){
+	
+	
+	
+		//return (String) Iterable<Distances> distanceService.list();
+		
+		System.out.println("origen"+origen);
+		System.out.println("destino"+destino);
+		
+		return cityDistancesServices.listarutasconparametros(origen, destino);
+	}
+@GetMapping("/listarutasconorigenylimitedekm")
+public  String listarutasconorigenylimitedekm(@RequestParam(required=false)String origen, @RequestParam(required=false ) String km){
+	
+	
+		
+		
+		System.out.println("origen"+origen);
+		float fkm=-100;
+		if (km.isEmpty()==false)
+		{
+			  // km.v
+			   fkm=Float.valueOf(km);
+			  //fkm.;
+		}
+		
+		
+		return cityDistancesServices.listarutasconorigenylimitedekm( origen, fkm);
+	}
+			
 
 
 
