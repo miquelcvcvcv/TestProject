@@ -92,19 +92,21 @@ public  String listarutasconparametros(@RequestParam(required=false)String orige
 		return cityDistancesServices.listarutasconparametros(origen, destino);
 	}
 @GetMapping("/listarutasconorigenylimitedekm")
-public  String listarutasconorigenylimitedekm(@RequestParam(required=false)String origen, @RequestParam(required=false ) String km){
+public  String listarutasconorigenylimitedekm(@RequestParam(name="origen")String origen, @RequestParam(required=false ) String km){
 	
 	
 		
 		
 		System.out.println("origen"+origen);
 		float fkm=-100;
-		if (km.isEmpty()==false)
-		{
-			  // km.v
+		
+		
+			  if (km!=null)
+			  {
 			   fkm=Float.valueOf(km);
-			  //fkm.;
-		}
+			  }
+			  
+	
 		
 		
 		return cityDistancesServices.listarutasconorigenylimitedekm( origen, fkm);
