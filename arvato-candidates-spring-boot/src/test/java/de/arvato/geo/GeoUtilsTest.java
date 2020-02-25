@@ -21,6 +21,7 @@ public class GeoUtilsTest {
 	public void testGetDistance() {
 		assertEquals(20.67, GeoUtils.getDistance(41.612190, 2.005440, 41.652594, 2.248259), 0.01);
 		assertEquals(255.79, GeoUtils.getDistance(41.386604, 2.167277, 41.645445, -0.885613), 0.01);
+		
 	}
 
 }

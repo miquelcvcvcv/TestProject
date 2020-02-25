@@ -71,7 +71,8 @@ public class ArvatoCandidatesSpringBootApplication {
 			TypeReference <List<City>> typeReference = new TypeReference <List<City>>(){};
 			InputStream inputStream=TypeReference.class.getResourceAsStream("/data/cities.json");
 			Reader reader = new InputStreamReader(inputStream, "UTF-8");
-			BufferedReader in = new BufferedReader(new InputStreamReader(inputStream, StandardCharsets.UTF_8));
+			//BufferedReader in = new BufferedReader(new InputStreamReader(inputStream, StandardCharsets.UTF_8));
+			BufferedReader in = new BufferedReader(new InputStreamReader(inputStream, StandardCharsets.ISO_8859_1));
 			
 			try {
 				
@@ -91,7 +92,8 @@ public class ArvatoCandidatesSpringBootApplication {
 			TypeReference <List<Distances>> typeReferenced = new TypeReference <List<Distances>>(){};
 			InputStream inputStreamd=TypeReference.class.getResourceAsStream("/data/distances.json");
 			Reader readerd = new InputStreamReader(inputStreamd, "UTF-8");
-			BufferedReader ind = new BufferedReader(new InputStreamReader(inputStreamd, StandardCharsets.UTF_8));
+			//BufferedReader ind = new BufferedReader(new InputStreamReader(inputStreamd, StandardCharsets.UTF_8));
+			BufferedReader ind = new BufferedReader(new InputStreamReader(inputStreamd, StandardCharsets.ISO_8859_1));
 							
 			try {
 
