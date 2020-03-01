@@ -124,10 +124,10 @@ public class CityDistancesService {
 
 		s=s+"Distancia calculada por geoUtils"+"<br></br>";;
 		//peaje=false;
-		if (peaje==false)
-		{
-			s=s+"Ruta sin peajes"+"<br></br>";
-		}
+	//	if (peaje==false)
+		//{
+			//s=s+"Ruta sin peajes"+"<br></br>";
+		//}
 		//Encontrar ciudad 1;
 		O startlatorientation,startlonorientation,endlatorientation,endlonorientation ;
 
@@ -471,8 +471,9 @@ public class CityDistancesService {
 			
 		}else if ((origen!=null)&&(destino==null))
 		{
-			s=s+"Ruta(s) con el origen especificado";
+			/*s=s+"Ruta(s) simples con el origen especificado"+"<br></br>";
 			boolean b=false;
+			//hace una busqueda muy simple, tendria que hacer una compleja
 			for (int i=0; i<distances.size();i++)
 			{
 				if (distances.get(i).getOrigin().equals(origen))
@@ -481,14 +482,27 @@ public class CityDistancesService {
 					s=s+"Ciudad Origen: "+distances.get(i).getOrigin()+"<br></br>";
 					s=s+"Ciudad Destino: "+distances.get(i).getdestination()+"<br></br>";
 				}
+				
+				
 					
 			}
 			
 			if (!b)
 			{
-			s=s+"No se han encontrado rutas con el destino especificado"+"<br></br>";
+			s=s+"No se han encontrado rutas simples con el destino especificado"+"<br></br>";
 			}
-		
+			*/
+			/*
+			List<City> cities=(List<City>)cityService.listaordenadaalfabeticamente();
+			//seria algo asi:
+			s=s+"Buscando todas las rutas con origen :"+origen+"<br></br>";
+			Boolfloat nohaylimitekm=new Boolfloat();
+			for (int i=0; i< cities.size(); i++)
+			{
+			s=s+this.busqueda_simple_y_compleja(origen, cities.get(i).getName(), true,nohaylimitekm);
+			}
+			*/
+			s=s+listarutasconorigenylimitedekm (origen,-100);
 			
 		}else if ((origen!=null)&&(destino!=null))
 		{
@@ -630,7 +644,7 @@ public class CityDistancesService {
 		//int i=0;
 		//if (ciudadorigen!=ciudaddestino)
 		//{
-		 Thread.sleep(50);
+		 //Thread.sleep(50);
 		 // distancesno=(List<Distances>)distanceService.list();
 		  System.out.println(distancesno.size());
 			System.out.println("Llamada a la funcion");
@@ -640,7 +654,7 @@ public class CityDistancesService {
 				boolean casnormal=true;
 				if ((ciudadorigen.equals(distancesno.get(ibc).getOrigin()))||(ciudadorigen.equals(distancesno.get(ibc).getdestination())))
 				{	
-					 Thread.sleep(50);
+					// Thread.sleep(50);
 					System.out.println("Ciudad origen macht"+ciudadorigen);
 					String ciudadoricenorigen;
 					if(ciudadorigen.equals(distancesno.get(ibc).getOrigin()))
@@ -676,7 +690,7 @@ public class CityDistancesService {
 						ruta=new String();
 						distancia_total=0;
 						
-						 Thread.sleep(50);
+						// Thread.sleep(50);
 						System.out.println("COntador recursivo"+contador_recursivo);
 						System.out.println("destino=destino busqueda compleja encontrada"+ciudadorigen);
 						if (peaje)

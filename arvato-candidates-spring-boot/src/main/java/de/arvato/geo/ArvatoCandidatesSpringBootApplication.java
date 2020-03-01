@@ -87,7 +87,6 @@ public class ArvatoCandidatesSpringBootApplication {
 				System.out.println("Unable to save cities"+e.getMessage());
 			}
 			
-			
 			ObjectMapper objectMapperd =new ObjectMapper();
 			TypeReference <List<Distances>> typeReferenced = new TypeReference <List<Distances>>(){};
 			InputStream inputStreamd=TypeReference.class.getResourceAsStream("/data/distances.json");
