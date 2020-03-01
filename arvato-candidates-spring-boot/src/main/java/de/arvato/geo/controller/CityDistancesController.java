@@ -111,7 +111,26 @@ public  String listarutasconorigenylimitedekm(@RequestParam(name="origen")String
 		
 		return cityDistancesServices.listarutasconorigenylimitedekm( origen, fkm);
 	}
-			
+@GetMapping("/listaordenadarutasconorigenylimitedekm")
+public  String listaordenadarutasconorigenylimitedekm(@RequestParam(name="origen")String origen, @RequestParam(required=false ) String km){
+	
+	
+		
+		
+		System.out.println("origen"+origen);
+		float fkm=-100;
+		
+		
+			  if (km!=null)
+			  {
+			   fkm=Float.valueOf(km);
+			  }
+			  
+	
+		
+		
+		return cityDistancesServices.listaordenadarutasconorigenylimitedekm( origen, fkm);
+	}			
 
 
 

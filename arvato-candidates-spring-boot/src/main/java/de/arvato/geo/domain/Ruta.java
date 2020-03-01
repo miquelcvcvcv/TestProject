@@ -1,6 +1,34 @@
 package de.arvato.geo.domain;
 
-public class Ruta {
+import java.io.Serializable;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+import org.hibernate.annotations.GenericGenerator;
+import org.springframework.stereotype.Component;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+
+
+
+@Data
+@AllArgsConstructor
+@Entity
+@Component
+
+public class Ruta  implements  Comparable<Ruta>, Serializable { 
+
+	private static final long serialVersionUID = 7758717594358781710L;
+
+	@Id @GeneratedValue(generator="system-uuid")
+	@GenericGenerator(name="system-uuid", strategy = "uuid")
+
+	
+	
+	
 	private String origen;
 	private String destino;
 	private float distancia;
@@ -37,12 +65,36 @@ public class Ruta {
 		ruta=new String();
 		
 	}
+	
 	@Override
     public int compareTo(Ruta ruta1) {
-      
 		
-		return this.distancia.compareToIgnoreCase(ruta1.distancia);
+      	/*int vr=0;
+		if (this.distancia < ruta1.distancia)
+		{
+			vr=-1;
+		}else if(this.distancia > ruta1.distancia)
+		{
+			vr=1;
+		}
+		
+		return vr;
+		*/
+		return  (int) (this.distancia- ruta1.distancia );
+	}
+	
+	/*
+	@Override
+    public int compareTo(Distances dis1) {
+        return this.origin.compareToIgnoreCase(dis1.origin);
     }
+*/
+	
+	
+	//(this.distancia &lt; (ruta1.distancia ) ? -1: (this.id &gt; otherStudent.id) ? 1:0 ;
+
+	// this.distancia.compareTo(ruta1.distancia);
+    //}
 
 	
 

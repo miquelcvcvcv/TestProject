@@ -101,6 +101,7 @@ public class ArvatoCandidatesSpringBootApplication {
 				citiesDistancesService.saveAllDistances(distances);     
 				
 				System.out.println("Distances Saved");
+				
 			} catch (IOException e)
 			{
 				System.out.println("Unable to save distances"+e.getMessage());

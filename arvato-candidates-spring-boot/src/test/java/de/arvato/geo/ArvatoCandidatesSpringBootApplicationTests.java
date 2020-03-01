@@ -9,6 +9,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import de.arvato.geo.domain.City;
+import de.arvato.geo.domain.Stringfloat;
 import de.arvato.geo.service.CityDistancesService;
 
 @RunWith(SpringRunner.class)
@@ -106,8 +107,20 @@ public class ArvatoCandidatesSpringBootApplicationTests {
 		
 		///////////punto 5
 		//http://localhost:8080/citiesanddistances/listarutasconorigenylimitedekm?origen=Barcelona
+	
+		String rrutas=new String();
+		rrutas=cds.listaordenadarutasconorigenylimitedekm("Barcelona", -100);
+		rutasesperadas=new String("BUSCANDO TODAS LAS RUTAS CON ORIGEN : Barcelona" +"<br></br>"+"Ordenando rutas por distancia" +"<br></br>"+"Origen: Barcelona"+"<br></br>"+"Destino: Lleida"+"<br></br>"+"Distancia: 140.7"+"<br></br>"+"-----------------------------------------------------------------------------------"+"<br></br>"+"Origen: Barcelona"+"<br></br>"+"Destino: Tarragona"+"<br></br>"+"Distancia: 241.7"+"<br></br>"+"Ruta: Tarragona<-Lleida<-Barcelona"+"<br></br>"+"-----------------------------------------------------------------------------------"+"<br></br>"+"Origen: Barcelona"+"<br></br>"+"Destino: Teruel"+"<br></br>"+"Distancia: 431.0"+"<br></br>"+"-----------------------------------------------------------------------------------"+"<br></br>"+"Origen: Barcelona"+"<br></br>"+"Destino: Madrid"+"<br></br>"+"Distancia: 564.55"+"<br></br>"+"-----------------------------------------------------------------------------------"+"<br></br>"+"Origen: Barcelona"+"<br></br>"+"Destino: Cuenca"+"<br></br>"+"Distancia: 729.893"+"<br></br>"+"Ruta: Cuenca<-Madrid<-Barcelona"+"<br></br>"+"-----------------------------------------------------------------------------------"+"<br></br>"+"Origen: Barcelona"+"<br></br>"+"Destino: Madrid"+"<br></br>"+"Distancia: 733.0"+"<br></br>"+"Ruta: Madrid<-Teruel<-Barcelona"+"<br></br>"+"-----------------------------------------------------------------------------------"+"<br></br>"+"Origen: Barcelona"+"<br></br>"+"Destino: Teruel"+"<br></br>"+"Distancia: 866.55"+"<br></br>"+"Ruta: Teruel<-Madrid<-Barcelona"+"<br></br>"+"-----------------------------------------------------------------------------------"+"<br></br>"+"Origen: Barcelona"+"<br></br>"+"Destino: Cuenca"+"<br></br>"+"Distancia: 898.343"+"<br></br>"+"Ruta: Cuenca<-Madrid<-Teruel<-Barcelona"+"<br></br>"+"-----------------------------------------------------------------------------------"+"<br></br>"+"Origen: Barcelona"+"<br></br>"+"Destino: Málaga"+"<br></br>"+"Distancia: 1093.75"+"<br></br>"+"Ruta: Málaga<-Madrid<-Barcelona"+"<br></br>"+"-----------------------------------------------------------------------------------"+"<br></br>"+"Origen: Barcelona"+"<br></br>"+"Destino: Málaga"+"<br></br>"+"Distancia: 1262.2"+"<br></br>"+"Ruta: Málaga<-Madrid<-Teruel<-Barcelona"+"<br></br>"+"-----------------------------------------------------------------------------------"+"<br></br>"+"Origen: Barcelona"+"<br></br>"+"Destino: Barcelona"+"<br></br>"+"Distancia: 1297.55"+"<br></br>"+"Ruta: Barcelona<-Teruel<-Madrid<-Barcelona"+"<br></br>"+"-----------------------------------------------------------------------------------"+"<br></br>"+"Origen: Barcelona"+"<br></br>"+"Destino: Barcelona"+"<br></br>"+"Distancia: 1297.55"+"<br></br>"+"Ruta: Barcelona<-Madrid<-Teruel<-Barcelona"+"<br></br>"+"-----------------------------------------------------------------------------------"+"<br></br>"+"Origen: Barcelona"+"<br></br>"+"Destino: Lleida"+"<br></br>"+"Distancia: 1438.25"+"<br></br>"+"Ruta: Lleida<-Barcelona<-Teruel<-Madrid<-Barcelona"+"<br></br>"+"-----------------------------------------------------------------------------------"+"<br></br>"+"Origen: Barcelona"+"<br></br>"+"Destino: Tarragona"+"<br></br>"+"Distancia: 1539.25"+"<br></br>"+"Ruta: Tarragona<-Lleida<-Barcelona<-Teruel<-Madrid<-Barcelona"+"<br></br>"+"-----------------------------------------------------------------------------------");
+		assertEquals(rutasesperadas,rrutas);
+		
+			
+		 
+		 
+		 
 		//http://localhost:8080/citiesanddistances/listarutasconorigenylimitedekm?origen=Barcelona&km=1000
 		//http://localhost:8080/citiesanddistances/listarutasconorigenylimitedekm?origen=Madrid
+	
+		
 		
 		
 		
