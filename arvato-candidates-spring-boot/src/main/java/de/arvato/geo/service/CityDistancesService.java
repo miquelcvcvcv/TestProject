@@ -572,6 +572,8 @@ public class CityDistancesService {
 		List<City> cities=(List<City>)cityService.listaordenadaalfabeticamente();
 		s=s+"BUSCANDO TODAS LAS RUTAS CON ORIGEN : "+origen+"<br></br>";
 		
+		rutas=new ArrayList<Ruta>();
+		
 		for (int i=0; i< +cities.size() ; i++)
 		{	
 			this.busqueda_simple_y_compleja(origen, cities.get(i).getName(), true,haylimitekm);
@@ -583,7 +585,7 @@ public class CityDistancesService {
 		//Collections.sort(distances);
 		Collections.sort(rutas);
 		
-		for (int i=1; i<rutas.size();i++)
+		for (int i=0; i<rutas.size();i++)
 		{
 		
 			if((rutas.get(i).getDistancia()<km)||(haylimitekm.isB()==false))
