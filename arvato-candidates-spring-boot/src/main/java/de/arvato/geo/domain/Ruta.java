@@ -69,33 +69,11 @@ public class Ruta  implements  Comparable<Ruta>, Serializable {
 	@Override
     public int compareTo(Ruta ruta1) {
 		
-      	/*int vr=0;
-		if (this.distancia < ruta1.distancia)
-		{
-			vr=-1;
-		}else if(this.distancia > ruta1.distancia)
-		{
-			vr=1;
-		}
-		
-		return vr;
-		*/
+  
 		return  (int) (this.distancia- ruta1.distancia );
 	}
 	
-	/*
-	@Override
-    public int compareTo(Distances dis1) {
-        return this.origin.compareToIgnoreCase(dis1.origin);
-    }
-*/
 	
-	
-	//(this.distancia &lt; (ruta1.distancia ) ? -1: (this.id &gt; otherStudent.id) ? 1:0 ;
-
-	// this.distancia.compareTo(ruta1.distancia);
-    //}
-
 	
 
 }

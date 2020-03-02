@@ -2,12 +2,9 @@ package de.arvato.geo.domain;
 
 import java.io.Serializable;
 
-import javax.persistence.Column;
-import javax.persistence.Embeddable;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 
-import org.hibernate.annotations.GenericGenerator;
+import javax.persistence.Embeddable;
+
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

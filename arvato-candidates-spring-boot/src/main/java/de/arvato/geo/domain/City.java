@@ -8,7 +8,7 @@ import org.hibernate.annotations.GenericGenerator;
 
 import lombok.Data;
 import lombok.AllArgsConstructor;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 @Data
 @AllArgsConstructor

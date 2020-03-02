@@ -9,7 +9,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import de.arvato.geo.domain.City;
-import de.arvato.geo.domain.Stringfloat;
 import de.arvato.geo.service.CityDistancesService;
 
 @RunWith(SpringRunner.class)
@@ -46,7 +45,7 @@ public class ArvatoCandidatesSpringBootApplicationTests {
 		String distanciaesperada=new String ("DISTANCIA ENTRE DOS CIUDADES "+"<br></br>"+"Distancia calculada por geoUtils"+"<br></br>"+"Distancia calculada entre ciudades despues de convertir de gsm a lat y lon por get Distance"+"<br></br>"+"505.71508827256247"+"<br></br>"+"Busqueda de la ciudad de origen usando lat y lon. LAT=41.38289388888889 LON=2.1774319444444443"+"<br></br>"+"Ciudad origen encontrada: Barcelona"+"<br></br>"+"Busqueda de la ciudad de destino usando lat y lon. LAT=40.41670472222222 LON=-3.7035825"+"<br></br>"+"Ciudad destino encontrada: Madrid"+"<br></br>"+"BUSCANDO RUTA(S) SIMPLES con ORIGEN: Barcelona y DESTINO: Madrid"+"<br></br>"+"Ruta simple encontrada: "+"<br></br>"+"Distancia con peajes: 564.55"+"<br></br>"+"BUSCANDO RUTA COMPLEJA: "+"<br></br>"+"Imprimiendo rutas(s) :"+"<br></br>"+"RUTA 1: Madrid<-Teruel<-Barcelona .Kilometros totales con peajes: 733.0"+"<br></br>");		
 		
 		assertEquals(distanciaesperada,distancia);
-		http://localhost:8080/citiesanddistances/listarutasconparametros?origen=Barcelona
+		//http://localhost:8080/citiesanddistances/listarutasconparametros?origen=Barcelona
 		
 		/////////barcelona madrid sin peaje
 		//http://localhost:8080/citiesanddistances/distanciaentreciudades?startLatGrados=41&startLatMinutos=22&startLatSegundos=58.418&startLatOrientacion=N&startLonGrados=2&startLonMinutos=10&startLonSegundos=38.755&startLonOrientacion=E&endLatGrados=40&endLatMinutos=25&endLatSegundos=0.137&endLatOrientacion=N&endLonGrados=2&endLonMinutos=42&endLonSegundos=12.897&endLonOrientacion=O&peaje=false

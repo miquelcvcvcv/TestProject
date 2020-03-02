@@ -1,28 +1,25 @@
 package de.arvato.geo.service;
 
-import java.util.Collection;
+
 import java.util.Collections;
 import java.util.List;
 
-import org.jboss.logging.Logger;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.CrudRepository;
+
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
+
 
 import de.arvato.geo.domain.City;
-import de.arvato.geo.domain.Distances;
+
 import de.arvato.geo.repository.CityRepository;
-import de.arvato.geo.utils.GeoUtils;
+
 
 @Component
 //@Service
 public class CityService {
 
-	private static final Logger LOGGER= Logger.getLogger(Service.class);
+	//private static final Logger LOGGER= Logger.getLogger(Service.class);
 	
-	//@Autowired
-	//GeoUtils geo;
+
 
 	private CityRepository cityRepository;
 	

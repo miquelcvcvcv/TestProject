@@ -19,7 +19,7 @@ import lombok.Data;
 
 
 public class CityDistances {
-	private static final long serialVersionUID = 5755322007256239505L;
+//	private static final long serialVersionUID = 5755322007256239505L;
 	
 	@Id @GeneratedValue(generator="system-uuid")
 	@GenericGenerator(name="system-uuid", strategy = "uuid")

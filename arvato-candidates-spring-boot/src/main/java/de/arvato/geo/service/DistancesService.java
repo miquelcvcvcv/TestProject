@@ -4,18 +4,18 @@ import java.util.Collections;
 
 import java.util.List;
 
-import org.jboss.logging.Logger;
-import org.springframework.beans.factory.annotation.Autowired;
+//import org.jboss.logging.Logger;
+//import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
+//import org.springframework.stereotype.Service;
 
-import de.arvato.geo.domain.City;
+
 import de.arvato.geo.domain.Distances;
 import de.arvato.geo.repository.DistancesRepository;
 import de.arvato.geo.utils.GeoUtils;
 import de.arvato.geo.utils.GeoUtils.O;
 
-import de.arvato.geo.repository.CityRepository;
+
 
 @Component
 //@Service
@@ -24,9 +24,9 @@ public class DistancesService {
 
 
 	
-	@Autowired
-	 GeoUtils geo;
-	private static final Logger LOGGER= Logger.getLogger(Service.class);
+	//@Autowired
+	 //GeoUtils geo;
+	//private static final Logger LOGGER= Logger.getLogger(Service.class);
 
 	
 	
@@ -62,12 +62,10 @@ public class DistancesService {
 	 
 	public Iterable<Distances> saveAll(List<Distances> distances) {
 		return distancesRepository.saveAll(distances);
-		 //cityRepository.saveAll(cities);
-		
+			
 		
 	}
-	//return distancesService.distanciaentreciudades(startLatGrados,startLatMinutos,startLatSegundos,startLatOrientacion,startLonGrados,startLonMinutos,startLonSegundos,startLonOrientacion, endLatGrados,endLatMinutos,endLatSegundos,endLatOrientacion,endLonGrados,endLonMinutos,endLonSegundos,endLonOrientacion);
-	
+		
 	public  String distanciaentreciudades(int startLatGrados,int startLatMinutos,double startLatSegundos,String startLatOrientacion,int startLonGrados,int startLonMinutos,double startLonSegundos,String startLonOrientacion, int endLatGrados,int endLatMinutos, double endLatSegundos, String endLatOrientacion, int endLonGrados,int endLonMinutos, double endLonSegundos, String endLonOrientacion, Boolean peaje)
 		
 	  {
@@ -92,19 +90,19 @@ public class DistancesService {
 		endlonorientation=stringtoEnum(endLonOrientacion);
 		
 		
-		 double startlatorigin=geo.getDecimalValue(startLatGrados, startLatMinutos, startLatSegundos, startlatorientation);
-		 double startlonorigin=geo.getDecimalValue(startLonGrados, startLonMinutos, startLonSegundos, startlonorientation);
+		 double startlatorigin=GeoUtils.getDecimalValue(startLatGrados, startLatMinutos, startLatSegundos, startlatorientation);
+		 double startlonorigin=GeoUtils.getDecimalValue(startLonGrados, startLonMinutos, startLonSegundos, startlonorientation);
 		
-		 double endlatorigin=geo.getDecimalValue(endLatGrados, endLatMinutos, endLatSegundos, endlatorientation);
-		 double endlonorigin=geo.getDecimalValue(endLonGrados, endLonMinutos, endLonSegundos, endlonorientation);
+		 double endlatorigin=GeoUtils.getDecimalValue(endLatGrados, endLatMinutos, endLatSegundos, endlatorientation);
+		 double endlonorigin=GeoUtils.getDecimalValue(endLonGrados, endLonMinutos, endLonSegundos, endlonorientation);
 			
 		 
-		 double km=geo.getDistance(41.3828939, 2.1774322,  41.1172364, 1.2546057);
+		 double km=GeoUtils.getDistance(41.3828939, 2.1774322,  41.1172364, 1.2546057);
 		
 		//double km=0;
 		 s=s+km +"<br></br>";
 		
-		 double km2=geo.getDistance(startlatorigin, startlonorigin, endlatorigin, endlonorigin);
+		 double km2=GeoUtils.getDistance(startlatorigin, startlonorigin, endlatorigin, endlonorigin);
 		 s=s+"Distancia calculada despues de convertir de gsm a lat y lon"+"<br></br>";
 		 s=s+km2;
 		return s;
@@ -144,10 +142,7 @@ public class DistancesService {
 	return orientation;
 	}
 
-	private void If(boolean equals) {
-		// TODO Auto-generated method stub
-		
-	}
+	
 	
 	
 		
