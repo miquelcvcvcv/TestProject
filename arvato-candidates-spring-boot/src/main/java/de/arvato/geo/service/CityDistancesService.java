@@ -216,11 +216,7 @@ public class CityDistancesService {
 			}
 			
 				s=funcion_busqueda_compleja(s,cities.get(biorigen.getI()).getName(), cities.get(bidestino.getI()).getName(), peaje);
-			
-			
-				
-				
-			
+		
 				if (lsi.size()>1)
 				{
 				
@@ -242,18 +238,10 @@ public class CityDistancesService {
 				}
 	}
 
-
-
-
-
 		return s;
+		}
 	
-
-
-
-
-	}
-	public String busqueda_simple_y_compleja(String origen, String destino, Boolean peaje, Boolfloat haylimitekm)
+	private String busqueda_simple_y_compleja(String origen, String destino, Boolean peaje, Boolfloat haylimitekm)
 	{
 		String s=new String();
 		Boolint bibs=new Boolint();
@@ -343,7 +331,7 @@ public class CityDistancesService {
 			return s;
 	}
 	
-	public String funcion_busqueda_compleja(String s,String origen, String destino, boolean peaje)
+	private String funcion_busqueda_compleja(String s,String origen, String destino, boolean peaje)
 	{
 		contador_recursivo=0;
 		s=s+"BUSCANDO RUTA COMPLEJA: "+"<br></br>";
