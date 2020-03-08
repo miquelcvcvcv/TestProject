@@ -24,10 +24,11 @@ public class CityDistancesController {
 	private CityDistancesService cityDistancesServices;
 	
 
-	public CityDistancesController( CityDistancesService  cityDistancesServices)
+	/*public CityDistancesController( CityDistancesService  cityDistancesServices)
 	{
 		this.cityDistancesServices= cityDistancesServices;
 	}
+	*/
 	/////////////////////////ciudades//////////////////		
 	@GetMapping("/listcities")
 	public Iterable<City>list(){

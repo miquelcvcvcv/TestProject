@@ -25,7 +25,8 @@ public class DistancesService {
 
 	
 	//@Autowired
-	 //GeoUtils geo;
+	//GeoUtils geo;
+	
 	//private static final Logger LOGGER= Logger.getLogger(Service.class);
 
 	
@@ -99,20 +100,13 @@ public class DistancesService {
 		 
 		 double km=GeoUtils.getDistance(41.3828939, 2.1774322,  41.1172364, 1.2546057);
 		
-		//double km=0;
+		
 		 s=s+km +"<br></br>";
 		
 		 double km2=GeoUtils.getDistance(startlatorigin, startlonorigin, endlatorigin, endlonorigin);
 		 s=s+"Distancia calculada despues de convertir de gsm a lat y lon"+"<br></br>";
 		 s=s+km2;
 		return s;
-		/*
-		//encontrar ciudad 1 usando startlatorigin, startlonorigin
-		List<City> cities=(List<City>) cityRepository.findAll();
-		Collections.sort(cities);
-		CityService citiesService;
-		citiesService.listaordenadaalfabeticamente();
-		*/
 		
 		
 	}

@@ -25,13 +25,13 @@ public class CityDistancesService {
 
 	//private static final Logger LOGGER= Logger.getLogger(Service.class);
 
-	private List<Stringfloat> lsi;
-	private float distancia_total;
-	private String ruta;
-	private int contador_recursivo;
+	private List<Stringfloat> g_lsi;
+	private float g_f_distancia_total;
+	private String g_s_ruta;
+	private int g_i_contador_recursivo;
 	private String g_s_origen;
 	private String g_s_destino;
-	//private int ibc;
+	
 	
 	@Autowired
 	List<Distances> distancesno;
@@ -40,8 +40,7 @@ public class CityDistancesService {
 	GeoUtils geo;
 	
 
-	//private CityDistancesRepository cityDistancesRepository;
-
+	
 	@Autowired
 	private CityService cityService;
 	@Autowired
@@ -217,22 +216,22 @@ public class CityDistancesService {
 			
 				s=funcion_busqueda_compleja(s,cities.get(biorigen.getI()).getName(), cities.get(bidestino.getI()).getName(), peaje);
 		
-				if (lsi.size()>1)
+				if (g_lsi.size()>1)
 				{
 				
 					s=s+"Imprimiendo rutas(s) :"+"<br></br>";
-					lsi.remove(lsi.size()-1);
+					g_lsi.remove(g_lsi.size()-1);
 					System.out.println("busqueda compleja encontrada");
 			
-					for (int i=0; i<lsi.size(); i++)
+					for (int i=0; i<g_lsi.size(); i++)
 					{
 						if (peaje)
 						{
-						s=s+"RUTA "+(i+1)+": "+lsi.get(i).getS()+"<-"+cities.get(biorigen.getI()).getName()+" .Kilometros totales con peajes: "+lsi.get(i).getI()+"<br></br>";
+						s=s+"RUTA "+(i+1)+": "+g_lsi.get(i).getS()+"<-"+cities.get(biorigen.getI()).getName()+" .Kilometros totales con peajes: "+g_lsi.get(i).getI()+"<br></br>";
 						}
 						else
 						{
-						s=s+"RUTA "+(i+1)+": "+lsi.get(i).getS()+"<-"+cities.get(biorigen.getI()).getName()+" .Kilometros totales sin peajes: "+lsi.get(i).getI()+"<br></br>";
+						s=s+"RUTA "+(i+1)+": "+g_lsi.get(i).getS()+"<-"+cities.get(biorigen.getI()).getName()+" .Kilometros totales sin peajes: "+g_lsi.get(i).getI()+"<br></br>";
 						}
 					}
 				}
@@ -288,21 +287,21 @@ public class CityDistancesService {
 			
 			s=funcion_busqueda_compleja(s,origen, destino, peaje);
 			
-			if (lsi.size()>1)
+			if (g_lsi.size()>1)
 			{
 				s=s+"Imprimiendo ruta(s) :"+"<br></br>";
-				lsi.remove(lsi.size()-1);
+				g_lsi.remove(g_lsi.size()-1);
 				System.out.println("busqueda compleja encontrada");
 			
 			
-				for (int i=0; i<lsi.size(); i++)
+				for (int i=0; i<g_lsi.size(); i++)
 				{
 					if (peaje)
 					{
-						if ((haylimitekm.isB()==false)||((haylimitekm.isB()==true)&&(lsi.get(i).getI()< haylimitekm.getI())))
+						if ((haylimitekm.isB()==false)||((haylimitekm.isB()==true)&&(g_lsi.get(i).getI()< haylimitekm.getI())))
 						{
 					//s=s+"RUTA "+(i+1)+": "+lsi.get(i).getS()+cities.get(biorigen.getI()).getName()+"  .Kilometros totales con peajes: "+lsi.get(i).getI()+"<br></br>";
-					s=s+"RUTA "+(i+1)+": "+lsi.get(i).getS()+"<-"+origen+" .Kilometros totales con peajes: "+lsi.get(i).getI()+"<br></br>";
+					s=s+"RUTA "+(i+1)+": "+g_lsi.get(i).getS()+"<-"+origen+" .Kilometros totales con peajes: "+g_lsi.get(i).getI()+"<br></br>";
 					
 						}
 						else
@@ -312,9 +311,9 @@ public class CityDistancesService {
 						
 					}
 					else
-					{	if ((haylimitekm.isB()==false)||((haylimitekm.isB()==true)&&(lsi.get(i).getI()< haylimitekm.getI())))
+					{	if ((haylimitekm.isB()==false)||((haylimitekm.isB()==true)&&(g_lsi.get(i).getI()< haylimitekm.getI())))
 						{
-						s=s+"RUTA "+(i+1)+": "+lsi.get(i).getS()+"<-"+origen+" .Kilometros totales sin peajes: "+lsi.get(i).getI()+"<br></br>";
+						s=s+"RUTA "+(i+1)+": "+g_lsi.get(i).getS()+"<-"+origen+" .Kilometros totales sin peajes: "+g_lsi.get(i).getI()+"<br></br>";
 						}
 						else
 						{
@@ -333,17 +332,17 @@ public class CityDistancesService {
 	
 	private String funcion_busqueda_compleja(String s,String origen, String destino, boolean peaje)
 	{
-		contador_recursivo=0;
+		g_i_contador_recursivo=0;
 		s=s+"BUSCANDO RUTA COMPLEJA: "+"<br></br>";
-		distancia_total=0;
-		ruta=new String();
+		g_f_distancia_total=0;
+		g_s_ruta=new String();
 		//boolean busquedacomplejaencontrada=false;
 		
-		System.out.println("Rutaaaaaa origen "+ruta);
+		System.out.println("Rutaaaaaa origen "+g_s_ruta);
 		 distancesno=(List<Distances>)distanceService.list();
-		lsi=new ArrayList<Stringfloat>();	
+		g_lsi=new ArrayList<Stringfloat>();	
 		Stringfloat sf= new Stringfloat();
-		lsi.add(sf);
+		g_lsi.add(sf);
 		//ibc=0;
 		int numero_rutas=0;
 		
@@ -651,29 +650,29 @@ public class CityDistancesService {
 						System.out.println("aI"+ibc);	
 					
 					
-					contador_recursivo=contador_recursivo+1;
+						g_i_contador_recursivo=g_i_contador_recursivo+1;
 				
 					b=busquedacomplejarutas(numero_ruta_encontrada,ciudadoricenorigen , ciudaddestino,peaje,0);
 					distancesno.add(ibc,d);
-					contador_recursivo=contador_recursivo-1;
+					g_i_contador_recursivo=g_i_contador_recursivo-1;
 					System.out.println("Busqueda compleja resultado"+b);	
 					// contador recursivo se usa para que no encuetre rutas simples.
-					if ((ciudadoricenorigen.equals(ciudaddestino))&&(contador_recursivo>0))
+					if ((ciudadoricenorigen.equals(ciudaddestino))&&(g_i_contador_recursivo>0))
 						
 					{	
-						ruta=new String();
-						distancia_total=0;
+						g_s_ruta=new String();
+						g_f_distancia_total=0;
 						
 						// Thread.sleep(50);
-						System.out.println("COntador recursivo"+contador_recursivo);
+						System.out.println("COntador recursivo"+g_i_contador_recursivo);
 						System.out.println("destino=destino busqueda compleja encontrada"+ciudadorigen);
 						if (peaje)
 						{
-							distancia_total=distancia_total+distancesno.get(ibc).getDistance().getToll();
+							g_f_distancia_total=g_f_distancia_total+distancesno.get(ibc).getDistance().getToll();
 						}
 						else
 						{
-							distancia_total=distancia_total+distancesno.get(ibc).getDistance().getfree();
+							g_f_distancia_total=g_f_distancia_total+distancesno.get(ibc).getDistance().getfree();
 						}
 						
 					
@@ -681,16 +680,16 @@ public class CityDistancesService {
 						
 						if (casnormal)
 						{
-						ruta=ruta+distancesno.get(ibc).getdestination();
+							g_s_ruta=g_s_ruta+distancesno.get(ibc).getdestination();
 						
 						}
 						else
 						{
-						ruta=ruta+distancesno.get(ibc).getOrigin();
+							g_s_ruta=g_s_ruta+distancesno.get(ibc).getOrigin();
 						}
 					
-						System.out.println("bce ruta"+ruta);
-						System.out.println("bce distancia total"+distancia_total);
+						System.out.println("bce ruta"+g_s_ruta);
+						System.out.println("bce distancia total"+g_f_distancia_total);
 											
 						b=true;
 						return b;
@@ -701,46 +700,46 @@ public class CityDistancesService {
 						System.out.println("busqueda compleja encontrada");	
 						if (peaje)
 						{
-							distancia_total=distancia_total+distancesno.get(ibc).getDistance().getToll();
+							g_f_distancia_total=g_f_distancia_total+distancesno.get(ibc).getDistance().getToll();
 						}
 						else
 						{
-							distancia_total=distancia_total+distancesno.get(ibc).getDistance().getfree();
+							g_f_distancia_total=g_f_distancia_total+distancesno.get(ibc).getDistance().getfree();
 						}
 					
-						System.out.println("RUTA"+ ruta);	
+						System.out.println("RUTA"+ g_s_ruta);	
 						if (casnormal)
 						{
-						ruta=ruta+"<-"+distancesno.get(ibc).getdestination();
+							g_s_ruta=g_s_ruta+"<-"+distancesno.get(ibc).getdestination();
 						}
 						else
 						{
-						ruta=ruta+"<-"+distancesno.get(ibc).getOrigin();
+							g_s_ruta=g_s_ruta+"<-"+distancesno.get(ibc).getOrigin();
 						}
 						
 						System.out.println("I"+ibc);
-						System.out.println("contador_recursivo"+contador_recursivo);
+						System.out.println("contador_recursivo"+g_i_contador_recursivo);
 						
-						if (contador_recursivo==0)
+						if (g_i_contador_recursivo==0)
 						{
 							Stringfloat sf= new Stringfloat();
-							lsi.add(sf);
+							g_lsi.add(sf);
 							
 							System.out.println("i=0");	
-							System.out.println(ruta);
-							System.out.println(distancia_total);
-							lsi.get(numero_ruta_encontrada).setS(ruta);
-							lsi.get(numero_ruta_encontrada).setI(distancia_total);
+							System.out.println(g_s_ruta);
+							System.out.println(g_f_distancia_total);
+							g_lsi.get(numero_ruta_encontrada).setS(g_s_ruta);
+							g_lsi.get(numero_ruta_encontrada).setI(g_f_distancia_total);
 							
 							g_r_ruta=new Ruta();
-							g_r_ruta.setDistancia(distancia_total);
-							g_r_ruta.setRuta(ruta);
+							g_r_ruta.setDistancia(g_f_distancia_total);
+							g_r_ruta.setRuta(g_s_ruta);
 							g_r_ruta.setOrigen(g_s_origen);
 							g_r_ruta.setDestino(g_s_destino);
 							
 							rutas.add(g_r_ruta);
-							ruta=new String();
-							distancia_total=0;
+							g_s_ruta=new String();
+							g_f_distancia_total=0;
 							numero_ruta_encontrada++;
 						}
 						
